@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surfboard Website</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+<body>
+  <nav>
+    <h1>Surfboard</h1>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      {% if session.get('username') %}
+        {% if session.get('role') == 'admin' %}
+          <a href="/dashboard">Dashboard</a>
+        {% endif %}
+        <a href="/logout">Logout ({{ session['username'] }})</a>
+      {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+      {% endif %}
+    </div>
+  </nav>
+  <main>
+    <h2>{{ blog.title }}</h2>
+    <p>{{ blog.content }}</p>
+  </main>
+</body>
+</html>

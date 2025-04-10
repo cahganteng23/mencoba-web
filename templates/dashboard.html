@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Edit Konten Beranda</h2>
+    <form method="post">
+      <input type="text" name="title" placeholder="Judul" value="{{ blog.title }}" required>
+      <textarea name="content" rows="6" placeholder="Isi konten">{{ blog.content }}</textarea>
+      <button type="submit">Update</button>
+    </form>
+    <a href="/">← Kembali ke Beranda</a>
+  </div>
+</body>
+</html>
